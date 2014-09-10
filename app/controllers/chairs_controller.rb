@@ -14,6 +14,21 @@ class ChairsController < ApplicationController
     end
   end
 
+  def show
+    @chair = Chair.find(params[:id])
+  end
+
+  def edit
+    @chair = Chair.find(params[:id])
+  end
+
+  def update
+    @chair = Chair.find(params[:id])
+    @chair.update_attributes!(chair_params)
+
+    redirect_to chairs_path(@chair)
+  end
+
   private
   def chair_params
     params.require(:chair).permit(:size, :color)

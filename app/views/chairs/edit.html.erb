@@ -8,14 +8,6 @@
     <%= f.text_field :color %>
   </p>
   <p>
-    <%= f.submit 'Add chair' %>
+    <%= f.submit 'Update chair' %>
   </p>
-<% end %>
-
-<%= @chairs.each do |chair| %>
-<ul>
-  <li>
-    <%= link_to "#{chair.size}", chair_path(chair) %> <%= chair.color %>
-  </li>
-</ul>
 <% end %>
