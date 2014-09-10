@@ -33,4 +33,21 @@ feature 'CRUD chairs' do
     expect(page).to_not have_content 'Small'
     expect(page).to_not have_content 'Green'
   end
+
+  scenario 'User can delete chair from list' do
+    visit '/'
+    expect(page).to have_content 'Welcome'
+    click_on 'Add a chair'
+    fill_in 'Size', with: 'Small'
+    fill_in 'Color', with: 'Green'
+    click_on 'Add chair'
+    expect(page).to have_content 'Small'
+    expect(page).to have_content 'Green'
+    click_on 'Small'
+    expect(page).to have_content 'Small'
+    expect(page).to have_content 'Green'
+    click_on 'Delete'
+    expect(page).to_not have_content 'Small'
+    expect(page).to_not have_content 'Green'
+  end
 end

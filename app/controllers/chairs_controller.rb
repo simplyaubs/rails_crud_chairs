@@ -29,6 +29,12 @@ class ChairsController < ApplicationController
     redirect_to chairs_path(@chair)
   end
 
+  def destroy
+    @chair = Chair.find(params[:id]).delete
+
+    redirect_to chairs_path
+  end
+
   private
   def chair_params
     params.require(:chair).permit(:size, :color)
